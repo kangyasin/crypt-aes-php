@@ -1,0 +1,46 @@
+{
+    "name": "kangyasin/crypt-aes-php",
+    "description": "A library to encrypt or decrypt with random password generator based on secret key defined.",
+    "keywords": [
+        "aes-encryption",
+        "rijndael",
+        "cryptolib",
+        "aes"
+    ],
+    "homepage": "https://github.com/kangyasin/crypt-aes-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kang Yasin",
+            "email": "tutorialblogmarine@gmail.com",
+            "homepage": "https://github.com/kangyasin",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "ext-openssl": "*"
+    },
+    "require-dev": {
+        "larapack/dd": "^1.0",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kangyasin\\CryptoLib\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kangyasin\\CryptoLib\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
