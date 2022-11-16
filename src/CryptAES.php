@@ -1,12 +1,12 @@
 <?php
 
-namespace Kangyasin\CryptoLib;
+namespace Kangyasin\CryptAES;
 
-use Kangyasin\CryptoLib\Exceptions\NotSecureIVGenerated;
-use Kangyasin\CryptoLib\Exceptions\UnableToDecrypt;
+use Kangyasin\CryptAES\Exceptions\NotSecureIVGenerated;
+use Kangyasin\CryptAES\Exceptions\UnableToDecrypt;
 use Throwable;
 
-class CryptoLib
+class CryptAES
 {
     /**
      * Default setting for generating hash

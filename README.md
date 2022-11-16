@@ -1,4 +1,4 @@
-# CryptoLib (PHP)
+# CryptAES (PHP)
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/kangyasin/crypt-aes-php.svg?style=flat-square)](https://packagist.org/packages/kangyasin/crypt-aes-php)
 [![Total Downloads](https://img.shields.io/packagist/dt/kangyasin/crypt-aes-php.svg?style=flat-square)](https://packagist.org/packages/kangyasin/crypt-aes-php)
@@ -39,7 +39,7 @@ If you use Composer, these dependencies should be handled automatically. If you 
 $string     = 'The quick brown fox jumps over to the lazy dog.';
 $secretyKey = 'BlVssQKxzAHFAUNZbqvwS+yKw/m';
 
-$encryption = new \Kangyasin\CryptoLib\CryptoLib();
+$encryption = new \Kangyasin\CryptAES\CryptAES();
 
 $cipher  = $encryption->encryptPlainTextWithRandomIV($string, $secretyKey);
 echo 'Cipher: ' . $cipher . PHP_EOL;
@@ -54,7 +54,7 @@ echo 'Decrypted: ' . $plainText . PHP_EOL;
 $string     = 'The quick brown fox jumps over to the lazy dog.';
 $secretyKey = 'BlVssQKxzAHFAUNZbqvwS+yKw/m';
 
-$encryption = new \Kangyasin\CryptoLib\CryptoLib();
+$encryption = new \Kangyasin\CryptAES\CryptAES();
 $iv         = $encryption->generateRandomIV();
 
 $cipher = $encryption->encrypt($string, $secretyKey, $iv);

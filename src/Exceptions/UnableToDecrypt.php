@@ -1,6 +1,6 @@
 <?php
 
-namespace Kangyasin\CryptoLib\Exceptions;
+namespace Kangyasin\CryptAES\Exceptions;
 
 use Exception;
 

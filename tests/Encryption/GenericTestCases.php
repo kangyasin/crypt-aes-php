@@ -18,69 +18,69 @@ abstract class GenericTestCases extends TestCase
 
     public function getCryptAES()
     {
-        return $this->CryptAES;
+        return $this->cryptolib;
     }
 
-    protected function random_iv($CryptAES, $key)
+    protected function random_iv($cryptolib, $key)
     {
         $plainText = openssl_random_pseudo_bytes(16);
 
-        $cipher  = $CryptAES->encryptPlainTextWithRandomIV($plainText, $key);
-        $decoded = $CryptAES->decryptCipherTextWithRandomIV($cipher, $key);
+        $cipher  = $cryptolib->encryptPlainTextWithRandomIV($plainText, $key);
+        $decoded = $cryptolib->decryptCipherTextWithRandomIV($cipher, $key);
 
         $this->assertEquals($plainText, $decoded);
     }
 
-    protected function huge_string_random_iv($CryptAES, $key)
+    protected function huge_string_random_iv($cryptolib, $key)
     {
         $plainText = openssl_random_pseudo_bytes(16000);
 
-        $cipher  = $CryptAES->encryptPlainTextWithRandomIV($plainText, $key);
-        $decoded = $CryptAES->decryptCipherTextWithRandomIV($cipher, $key);
+        $cipher  = $cryptolib->encryptPlainTextWithRandomIV($plainText, $key);
+        $decoded = $cryptolib->decryptCipherTextWithRandomIV($cipher, $key);
 
         $this->assertEquals($plainText, $decoded);
     }
 
-    protected function custom_iv($CryptAES, $key)
+    protected function custom_iv($cryptolib, $key)
     {
         $plainText = openssl_random_pseudo_bytes(16);
-        $iv               = $CryptAES->generateRandomIV();
+        $iv               = $cryptolib->generateRandomIV();
 
-        $cipher  = $CryptAES->encrypt($plainText, $key, $iv);
-        $decoded = $CryptAES->decrypt($cipher, $key, $iv);
+        $cipher  = $cryptolib->encrypt($plainText, $key, $iv);
+        $decoded = $cryptolib->decrypt($cipher, $key, $iv);
 
         $this->assertEquals($plainText, $decoded);
     }
 
-    protected function huge_string_custom_iv($CryptAES, $key)
+    protected function huge_string_custom_iv($cryptolib, $key)
     {
         $plainText = openssl_random_pseudo_bytes(16000);
-        $iv               = $CryptAES->generateRandomIV();
+        $iv               = $cryptolib->generateRandomIV();
 
-        $cipher  = $CryptAES->encryptPlainTextWithRandomIV($plainText, $key, $iv);
-        $decoded = $CryptAES->decryptCipherTextWithRandomIV($cipher, $key, $iv);
+        $cipher  = $cryptolib->encryptPlainTextWithRandomIV($plainText, $key, $iv);
+        $decoded = $cryptolib->decryptCipherTextWithRandomIV($cipher, $key, $iv);
 
         $this->assertEquals($plainText, $decoded);
     }
 
-    protected function diff_key_expect_exception($CryptAES, $key)
+    protected function diff_key_expect_exception($cryptolib, $key)
     {
         $this->expectException(UnableToDecrypt::class);
 
         $plainText = openssl_random_pseudo_bytes(16);
 
-        $cipher  = $CryptAES->encrypt($plainText, openssl_random_pseudo_bytes(16), $CryptAES->generateRandomIV());
-        $decoded = $CryptAES->decrypt($cipher, openssl_random_pseudo_bytes(16), $CryptAES->generateRandomIV());
+        $cipher  = $cryptolib->encrypt($plainText, openssl_random_pseudo_bytes(16), $cryptolib->generateRandomIV());
+        $decoded = $cryptolib->decrypt($cipher, openssl_random_pseudo_bytes(16), $cryptolib->generateRandomIV());
     }
 
-    protected function huge_string_diff_key_expect_exception($CryptAES, $key)
+    protected function huge_string_diff_key_expect_exception($cryptolib, $key)
     {
         $this->expectException(UnableToDecrypt::class);
 
         $plainText = openssl_random_pseudo_bytes(16000);
 
-        $cipher  = $CryptAES->encrypt($plainText, openssl_random_pseudo_bytes(16), $CryptAES->generateRandomIV());
-        $decoded = $CryptAES->decrypt($cipher, openssl_random_pseudo_bytes(16), $CryptAES->generateRandomIV());
+        $cipher  = $cryptolib->encrypt($plainText, openssl_random_pseudo_bytes(16), $cryptolib->generateRandomIV());
+        $decoded = $cryptolib->decrypt($cipher, openssl_random_pseudo_bytes(16), $cryptolib->generateRandomIV());
     }
 
 }

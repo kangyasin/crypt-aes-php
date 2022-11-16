@@ -27,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Kangyasin\\CryptoLib\\": "src"
+            "Kangyasin\\CryptAES\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Kangyasin\\CryptoLib\\Tests\\": "tests"
+            "Kangyasin\\CryptAES\\Tests\\": "tests"
         }
     },
     "scripts": {

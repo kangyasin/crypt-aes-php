@@ -4,12 +4,12 @@ namespace Kangyasin\CryptAES\Tests\Encryption;
 
 class AES_256_CBC_Test extends GenericTestCases
 {
-    protected $CryptAES;
+    protected $cryptolib;
 
     public function initClass()
     {
         $secretKey       = openssl_random_pseudo_bytes(16);
-        $this->CryptAES = new \Kangyasin\CryptAES\CryptAES([
+        $this->cryptolib = new \Kangyasin\CryptAES\CryptAES([
             'method' => 'AES-256-CBC',
         ]);
 
@@ -25,9 +25,9 @@ class AES_256_CBC_Test extends GenericTestCases
      *
      * @dataProvider additionProvider
      */
-    public function random_iv($CryptAES, $key)
+    public function random_iv($cryptolib, $key)
     {
-        parent::random_iv($CryptAES, $key);
+        parent::random_iv($cryptolib, $key);
     }
 
     /**
@@ -35,9 +35,9 @@ class AES_256_CBC_Test extends GenericTestCases
      *
      * @dataProvider additionProvider
      */
-    public function huge_string_random_iv($CryptAES, $key)
+    public function huge_string_random_iv($cryptolib, $key)
     {
-        parent::huge_string_random_iv($CryptAES, $key);
+        parent::huge_string_random_iv($cryptolib, $key);
     }
 
     /**
@@ -45,9 +45,9 @@ class AES_256_CBC_Test extends GenericTestCases
      *
      * @dataProvider additionProvider
      */
-    public function custom_iv($CryptAES, $key)
+    public function custom_iv($cryptolib, $key)
     {
-        parent::custom_iv($CryptAES, $key);
+        parent::custom_iv($cryptolib, $key);
     }
 
     /**
@@ -55,9 +55,9 @@ class AES_256_CBC_Test extends GenericTestCases
      *
      * @dataProvider additionProvider
      */
-    public function huge_string_custom_iv($CryptAES, $key)
+    public function huge_string_custom_iv($cryptolib, $key)
     {
-        parent::huge_string_custom_iv($CryptAES, $key);
+        parent::huge_string_custom_iv($cryptolib, $key);
     }
 
     /**
@@ -65,9 +65,9 @@ class AES_256_CBC_Test extends GenericTestCases
      *
      * @dataProvider additionProvider
      */
-    public function diff_key_expect_exception($CryptAES, $key)
+    public function diff_key_expect_exception($cryptolib, $key)
     {
-        parent::diff_key_expect_exception($CryptAES, $key);
+        parent::diff_key_expect_exception($cryptolib, $key);
     }
 
     /**
@@ -75,9 +75,9 @@ class AES_256_CBC_Test extends GenericTestCases
      *
      * @dataProvider additionProvider
      */
-    public function huge_string_diff_key_expect_exception($CryptAES, $key)
+    public function huge_string_diff_key_expect_exception($cryptolib, $key)
     {
-        parent::huge_string_diff_key_expect_exception($CryptAES, $key);
+        parent::huge_string_diff_key_expect_exception($cryptolib, $key);
     }
 
 }
